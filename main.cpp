@@ -71,6 +71,20 @@ void readRegions(std::vector<Region>& regions)
   }
   file.close();
 }
+void readPriceRecords(std::vector<PriceRecord>& prices)
+{
+  std::ifstream file("ZILLOW_DATA.csv");
+  std::string line;
+  while (std::getline(file, line)) {
+    std::stringstream ss(line);
+    std::string regionID, date, value;
+    std::getline(ss, regionID, ',');
+    std::getline(ss, date, ',');
+    std::getline(ss, value, ',');
+    prices.push_back({std::stoi(regionID), date, std::stod(value)});
+  }
+  file.close();
+}
 
 void printFirstFiveRegions(const std::vector<Region>& regions)
 {
@@ -103,6 +117,8 @@ int main()
   std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
             << std::endl;
   printFirstFiveRegions(regionsByName);
+  std::cout << "-----------------------------Part 4----------------------------"
+            << std::endl;
 
   return 0;
 }
