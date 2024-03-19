@@ -87,7 +87,7 @@ void readPriceRecords(std::vector<PriceRecord>& prices)
 }
 void printRecords(const std::vector<PriceRecord>& prices)
 {
-  for (int i = 0; i < 5 && i < prices.size(); ++i) {
+  for (int i = 0; i < 5; ++i) {
     const PriceRecord& record = prices[i];
     std::cout << "Region ID: " << record.regionID << ", Date: " << record.date
               << ", Value: " << record.value << std::endl;
@@ -96,7 +96,7 @@ void printRecords(const std::vector<PriceRecord>& prices)
 
 void printFirstFiveRegions(const std::vector<Region>& regions)
 {
-  for (int i = 0; i < 5 && i < regions.size(); ++i) {
+  for (int i = 0; i < 5; ++i) {
     const Region& region = regions[i];
     std::cout << "ID: " << region.id << ", City: " << region.city
               << ", State: " << region.state << std::endl;
