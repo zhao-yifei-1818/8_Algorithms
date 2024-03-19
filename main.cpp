@@ -153,7 +153,8 @@ int main()
       std::cout << "City: " << region.city << ", State: " << region.state
                 << ", Date: " << priceRecord.date
                 << ", Value: " << priceRecord.value << std::endl;
-    }
+    } else
+      (std::cout << "Not found" << std::endl;);
   }
 
   clock_t end = clock();
