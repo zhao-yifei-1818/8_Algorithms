@@ -130,5 +130,8 @@ int main()
   std::vector<PriceRecord> prices;
   readPriceRecords(prices);
   printRecords(prices);
-  return 0;
+  std::cout << "-----------------------------Part 5----------------------------"
+            << std::endl;
+
+    return 0;
 }
