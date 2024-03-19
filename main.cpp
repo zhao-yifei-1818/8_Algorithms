@@ -1,17 +1,11 @@
+#include "helpers.h"
 #include <fstream>
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <vector>
-
 int main()
 {
-  struct Region {
-    int id;
-    std::string city;
-    std::string state;
-  };
-
   auto readRegions = [](std::vector<Region>& regions) {
     std::ifstream file("ZILLOW_REGIONS.csv");
     std::string line;
