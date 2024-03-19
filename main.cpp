@@ -129,6 +129,6 @@ int main()
             << std::endl;
   std::vector<PriceRecord> prices;
   readPriceRecords(prices);
-  void printRecords(prices);
+  printRecords(prices);
   return 0;
 }
