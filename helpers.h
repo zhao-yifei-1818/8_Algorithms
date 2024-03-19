@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 
+using namespace std;
 struct Region {
   int id;
   std::string city;
