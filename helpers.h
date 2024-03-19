@@ -21,7 +21,7 @@ void insertionSort(std::vector<T>& vec)
     T key = vec[i];
     int j = i;
     while (j > 0 && key < vec[j - 1]) {
-      swap(vec[j], vec[j - 1]);
+      vec[j] = vec[j - 1];
       j--;
     }
     vec[j] = key;
