@@ -1,4 +1,6 @@
 #include "helpers.h"
+#include <string>
+#include <vector>
 using namespace std;
 
 vector<Region> slice(const vector<Region>& vec, size_t startLoc, size_t endLoc)
