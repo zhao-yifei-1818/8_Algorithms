@@ -32,8 +32,11 @@ void printFirstFiveRegions(const vector<Region>& regions)
 
 int main()
 {
+  cout << "-----------------------------Part 1----------------------------"
+       << endl;
   vector<Region> regions;
   readRegions(regions);
+
   clock_t start = clock();
   insertionSort(regions);
   clock_t end = clock();
