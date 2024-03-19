@@ -43,7 +43,6 @@ int main()
   cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
        << endl;
 
-  printFirstFiveRegions(regions);
   cout << "-----------------------------Part 2----------------------------"
        << endl;
   std::vector<Region> regionsByName = regions;
@@ -52,6 +51,7 @@ int main()
   clock_t end = clock();
   cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
        << endl;
+  printFirstFiveRegions(regions);
 
   // cout << "-----------------------------Part 3----------------------------"
   //      << endl;
