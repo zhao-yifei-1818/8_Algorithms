@@ -1,47 +1,53 @@
 #include "helpers.h"
-#include <string>
-#include <vector>
-using namespace std;
 
-vector<Region> slice(const vector<Region>& vec, size_t startLoc, size_t endLoc)
+void merge(std::vector<Region>& arr, int l, int m, int r)
 {
-  vector<Region> newVec;
-  for (size_t i = startLoc; i < endLoc; ++i) {
-    newVec.push_back(vec.at(i));
-  }
-  return newVec;
-}
+  int i, j, k;
+  int n1 = m - l + 1;
+  int n2 = r - m;
 
-vector<Region> merge(const vector<Region>& vec1, const vector<Region>& vec2)
-{
-  vector<Region> newVec;
-  size_t i = 0, j = 0;
-  while (i < vec1.size() && j < vec2.size()) {
-    if (vec1.at(i) < vec2.at(j)) {
-      newVec.push_back(vec1.at(i++));
+  std::vector<Region> L(n1), R(n2);
+
+  for (i = 0; i < n1; i++)
+    L[i] = arr[l + i];
+  for (j = 0; j < n2; j++)
+    R[j] = arr[m + 1 + j];
+
+  i = 0;
+  j = 0;
+  k = l;
+  while (i < n1 && j < n2) {
+    if (L[i] < R[j]) {
+      arr[k] = L[i];
+      i++;
     } else {
-      newVec.push_back(vec2.at(j++));
+      arr[k] = R[j];
+      j++;
     }
+    k++;
   }
-  while (i < vec1.size()) {
-    newVec.push_back(vec1.at(i++));
+
+  while (i < n1) {
+    arr[k] = L[i];
+    i++;
+    k++;
   }
-  while (j < vec2.size()) {
-    newVec.push_back(vec2.at(j++));
+
+  while (j < n2) {
+    arr[k] = R[j];
+    j++;
+    k++;
   }
-  return newVec;
 }
 
-void mergeSort(vector<Region>& vec)
+void mergeSort(std::vector<Region>& arr, int l, int r)
 {
-  if (vec.size() > 1) {
-    size_t mid = vec.size() / 2;
-    vector<Region> left = slice(vec, 0, mid);
-    vector<Region> right = slice(vec, mid, vec.size());
+  if (l < r) {
+    int m = l + (r - l) / 2;
 
-    mergeSort(left);
-    mergeSort(right);
+    mergeSort(arr, l, m);
+    mergeSort(arr, m + 1, r);
 
-    vec = merge(left, right);
+    merge(arr, l, m, r);
   }
 }
