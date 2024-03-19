@@ -112,18 +112,18 @@ int main()
   printFirstFiveRegions(regions);
   std::cout << "-----------------------------Part 2----------------------------"
             << std::endl;
-  insertionSort(regions);
+  // insertionSort(regions);
   printFirstFiveRegions(regions);
 
   std::cout << "-----------------------------Part 3----------------------------"
             << std::endl;
 
   std::vector<Region> regionsByName = regions;
-  clock_t start = clock();
-  mergeSort(regionsByName, 0, regionsByName.size() - 1);
-  clock_t end = clock();
-  std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
-            << std::endl;
+  // clock_t start = clock();
+  // mergeSort(regionsByName, 0, regionsByName.size() - 1);
+  // clock_t end = clock();
+  // std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
+  //           << std::endl;
   printFirstFiveRegions(regionsByName);
   std::cout << "-----------------------------Part 4----------------------------"
             << std::endl;
@@ -133,5 +133,5 @@ int main()
   std::cout << "-----------------------------Part 5----------------------------"
             << std::endl;
 
-    return 0;
+  return 0;
 }
