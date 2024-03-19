@@ -41,7 +41,7 @@ int main()
 
   cout << "-----------------------------Part 2----------------------------"
        << endl;
-  std::vector<Region> regionsByName = regions;
+  vector<Region> regionsByName = regions;
   clock_t start = clock();
   mergeSort(regionsByName, 0,
             regionsByName.size() - 1); // Use mergeSort to sort regionsByName
