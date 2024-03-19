@@ -127,8 +127,8 @@ int main()
             << std::endl;
   std::vector<Region> regions;
   readRegions(regions);
-
   printFirstFiveRegions(regions);
+
   std::cout << "-----------------------------Part 2----------------------------"
             << std::endl;
   // insertionSort(regions);
@@ -136,7 +136,6 @@ int main()
 
   std::cout << "-----------------------------Part 3----------------------------"
             << std::endl;
-
   std::vector<Region> regionsByName = regions;
   // clock_t start = clock();
   mergeSort(regionsByName, 0, regionsByName.size() - 1);
@@ -144,22 +143,32 @@ int main()
   // std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
   //           << std::endl;
   printFirstFiveRegions(regionsByName);
+
   std::cout << "-----------------------------Part 4----------------------------"
             << std::endl;
   std::vector<PriceRecord> prices;
   readPriceRecords(prices);
   printRecords(prices);
+
   std::cout << "-----------------------------Part 5----------------------------"
             << std::endl;
   Region foundRegion = binaryFind(regions, 20317);
   std::cout << "Found Region: ID: " << foundRegion.id
             << ", City: " << foundRegion.city
             << ", State: " << foundRegion.state << std::endl;
+
   std::cout << "-----------------------------Part 6----------------------------"
             << std::endl;
   std::string searchCity;
   std::cout << "Enter a city name: ";
   std::getline(std::cin, searchCity);
-
+  for (const auto& priceRecord : prices) {
+    Region region = binaryFind(regions, priceRecord.regionID);
+    if (region.city == searchCity) {
+      std::cout << "City: " << region.city << ", State: " << region.state
+                << ", Date: " << priceRecord.date
+                << ", Value: " << priceRecord.value << std::endl;
+    }
+  }
   return 0;
 }
