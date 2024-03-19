@@ -165,7 +165,7 @@ int main()
 
   clock_t start = clock();
 
-  for (const auto& priceRecord : prices) {
+  for (const PriceRecord& priceRecord : prices) {
     Region region = binaryFind(regions, priceRecord.regionID);
     if (region.city == searchCity) {
       std::cout << "City: " << region.city << ", State: " << region.state
