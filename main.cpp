@@ -37,11 +37,7 @@ int main()
   vector<Region> regions;
   readRegions(regions);
 
-  clock_t start = clock();
   insertionSort(regions);
-  clock_t end = clock();
-  cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
-       << endl;
 
   cout << "-----------------------------Part 2----------------------------"
        << endl;
