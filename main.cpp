@@ -127,6 +127,8 @@ int main()
   printFirstFiveRegions(regionsByName);
   std::cout << "-----------------------------Part 4----------------------------"
             << std::endl;
-
+  std::vector<PriceRecord> prices;
+  readPriceRecords(prices);
+  void printRecords(prices);
   return 0;
 }
