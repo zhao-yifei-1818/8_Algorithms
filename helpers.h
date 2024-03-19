@@ -18,12 +18,12 @@ struct Region {
 template<typename T>
 void insertionSort(std::vector<T>& vec)
 {
-  for (int i = 1; i < vec.size(); i++) {
+  for (int i = 1; i < vec.size(); ++i) {
     T key = vec[i];
     int j = i;
     while (j > 0 && key < vec[j - 1]) {
       vec[j] = vec[j - 1];
-      j++;
+      --j;
     }
     vec[j] = key;
   }
