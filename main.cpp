@@ -44,5 +44,9 @@ int main()
        << endl;
 
   printFirstFiveRegions(regions);
+  cout << "-----------------------------Part 2----------------------------"
+       << endl;
+  cout << "-----------------------------Part 1----------------------------"
+       << endl;
   return 0;
 }
