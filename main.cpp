@@ -28,31 +28,26 @@ void printFirstFiveRegions(const std::vector<Region>& regions)
               << ", State: " << region.state << std::endl;
   }
 }
-
 int main()
 {
-  cout << "-----------------------------Part 1----------------------------"
-       << endl;
-  vector<Region> regions;
+  std::cout << "-----------------------------Part 1----------------------------"
+            << std::endl;
+  std::vector<Region> regions;
   readRegions(regions);
 
-  cout << "-----------------------------Part 2----------------------------"
-       << endl;
+  std::cout << "-----------------------------Part 2----------------------------"
+            << std::endl;
   insertionSort(regions);
-  cout << "-----------------------------Part 3----------------------------"
-       << endl;
+  std::cout << "-----------------------------Part 3----------------------------"
+            << std::endl;
 
-  vector<Region> regionsByName = regions;
+  std::vector<Region> regionsByName = regions;
   clock_t start = clock();
   mergeSort(regionsByName, 0, regionsByName.size() - 1);
   clock_t end = clock();
-  cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
-       << endl;
+  std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
+            << std::endl;
   printFirstFiveRegions(regions);
 
-  // cout << "-----------------------------Part 4----------------------------"
-  //      << endl;
-  // cout << "-----------------------------Part 5----------------------------"
-  //      << endl;
-  // return 0;
+  return 0;
 }
