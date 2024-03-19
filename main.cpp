@@ -43,7 +43,8 @@ int main()
        << endl;
   std::vector<Region> regionsByName = regions;
   clock_t start = clock();
-  mergeSort(regionsByName);
+  mergeSort(regionsByName, 0,
+            regionsByName.size() - 1); // Use mergeSort to sort regionsByName
   clock_t end = clock();
   cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
        << endl;
