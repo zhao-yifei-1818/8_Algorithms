@@ -1,3 +1,41 @@
+
+/**
+ * @brief Assignment 9 Algorithms
+ * @name Yifei Zhao
+ */
+/*
+CODE Broken from part 5.
+----------------------------Part 1----------------------------
+ID: 20330, City: San Francisco, State: CA
+ID: 20288, City: Sacramento, State: CA
+ID: 4172, City: Colorado Springs, State: CO
+ID: 37211, City: Atlanta, State: GA
+ID: 18795, City: Kansas City, State: MO
+-----------------------------Part 2----------------------------
+ID: 20330, City: San Francisco, State: CA
+ID: 20288, City: Sacramento, State: CA
+ID: 4172, City: Colorado Springs, State: CO
+ID: 37211, City: Atlanta, State: GA
+ID: 18795, City: Kansas City, State: MO
+-----------------------------Part 3----------------------------
+ID: 3300, City: Aberdeen, State: ID
+ID: 3301, City: Aberdeen, State: NC
+ID: 3304, City: Absecon, State: NJ
+ID: 3305, City: Accokeek, State: MD
+ID: 3310, City: Ada, State: OK
+-----------------------------Part 4----------------------------
+Region ID: 30134, Date: 2000-05-31, Value: 147918
+Region ID: 8801, Date: 2008-06-30, Value: 129177
+Region ID: 25661, Date: 1999-06-30, Value: 133718
+Region ID: 9310, Date: 2013-02-28, Value: 148968
+Region ID: 5428, Date: 2021-01-31, Value: 402175
+-----------------------------Part 5----------------------------
+Found Region: ID: 0, City: , State:
+-----------------------------Part 6----------------------------
+Enter a city name:
+
+*/
+
 #include "helpers.h"
 #include <ctime>
 #include <fstream>
@@ -5,24 +43,24 @@
 #include <sstream>
 #include <string>
 #include <vector>
-Region binaryFind(const std::vector<Region>& regions, int id)
-{
-  int left = 0;
-  int right = regions.size() - 1;
+// Region binaryFind(const std::vector<Region>& regions, int id)
+// {
+//   int left = 0;
+//   int right = regions.size() - 1;
 
-  while (left <= right) {
-    int mid = left + (right - left) / 2;
-    if (regions[mid].id == id) {
-      return regions[mid];
-    } else if (regions[mid].id < id) {
-      left = mid + 1;
-    } else {
-      right = mid - 1;
-    }
-  }
-  // Return a default Region if not found
-  return Region();
-}
+//   while (left <= right) {
+//     int mid = left + (right - left) / 2;
+//     if (regions[mid].id == id) {
+//       return regions[mid];
+//     } else if (regions[mid].id < id) {
+//       left = mid + 1;
+//     } else {
+//       right = mid - 1;
+//     }
+//   }
+//   // Return a default Region if not found
+//   return Region();
+// }
 void merge(std::vector<Region>& arr, int l, int m, int r)
 {
   int i, j, k;
