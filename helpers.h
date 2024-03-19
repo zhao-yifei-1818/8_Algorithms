@@ -3,6 +3,11 @@
 
 #include <string>
 #include <vector>
+struct PriceRecord {
+  int regionID;
+  std::string date;
+  double value;
+};
 
 struct Region {
   int id;
