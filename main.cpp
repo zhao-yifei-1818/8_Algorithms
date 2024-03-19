@@ -120,7 +120,7 @@ int main()
 
   std::vector<Region> regionsByName = regions;
   // clock_t start = clock();
-  // mergeSort(regionsByName, 0, regionsByName.size() - 1);
+  mergeSort(regionsByName, 0, regionsByName.size() - 1);
   // clock_t end = clock();
   // std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
   //           << std::endl;
