@@ -155,5 +155,11 @@ int main()
   std::cout << "Found Region: ID: " << foundRegion.id
             << ", City: " << foundRegion.city
             << ", State: " << foundRegion.state << std::endl;
+  std::cout << "-----------------------------Part 6----------------------------"
+            << std::endl;
+  std::string searchCity;
+  std::cout << "Enter a city name: ";
+  std::getline(std::cin, searchCity);
+
   return 0;
 }
