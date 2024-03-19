@@ -32,6 +32,8 @@ int main()
 {
   std::vector<Region> regions;
   readRegions(regions);
+  insertionSort(regions);
+
   printFirstFiveRegions(regions);
   return 0;
 }
