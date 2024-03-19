@@ -1,8 +1,8 @@
 #ifndef HELPERS_H
 #define HELPERS_H
-#include <vector>
 
 #include <string>
+#include <vector>
 
 struct Region {
   int id;
@@ -14,17 +14,19 @@ struct Region {
     return id < other.id;
   }
 };
+
 template<typename T>
 void insertionSort(std::vector<T>& vec)
 {
-  for (int i = 1; i < vec.size(); i++) {
+  for (size_t i = 1; i < vec.size(); ++i) {
     T key = vec[i];
-    int j = i;
+    size_t j = i;
     while (j > 0 && key < vec[j - 1]) {
       vec[j] = vec[j - 1];
-      j--;
+      --j;
     }
     vec[j] = key;
   }
-};
+}
+
 #endif // HELPERS_H
