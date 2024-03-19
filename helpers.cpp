@@ -1,12 +1,12 @@
 #include "helpers.h"
 
-void merge(std::vector<Region>& arr, int l, int m, int r)
+void merge(vector<Region>& arr, int l, int m, int r)
 {
   int i, j, k;
   int n1 = m - l + 1;
   int n2 = r - m;
 
-  std::vector<Region> L(n1), R(n2);
+  vector<Region> L(n1), R(n2);
 
   for (i = 0; i < n1; i++)
     L[i] = arr[l + i];
@@ -40,7 +40,7 @@ void merge(std::vector<Region>& arr, int l, int m, int r)
   }
 }
 
-void mergeSort(std::vector<Region>& arr, int l, int r)
+void mergeSort(vector<Region>& arr, int l, int r)
 {
   if (l < r) {
     int m = l + (r - l) / 2;
