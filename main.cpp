@@ -46,7 +46,18 @@ int main()
   printFirstFiveRegions(regions);
   cout << "-----------------------------Part 2----------------------------"
        << endl;
-  cout << "-----------------------------Part 1----------------------------"
+  std::vector<Region> regionsByName = regions;
+  clock_t start = clock();
+  mergeSort(regionsByName);
+  clock_t end = clock();
+  cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
        << endl;
-  return 0;
+
+  // cout << "-----------------------------Part 3----------------------------"
+  //      << endl;
+  // cout << "-----------------------------Part 4----------------------------"
+  //      << endl;
+  // cout << "-----------------------------Part 5----------------------------"
+  //      << endl;
+  // return 0;
 }
