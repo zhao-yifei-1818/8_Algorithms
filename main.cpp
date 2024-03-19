@@ -2,8 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
-
 #include <vector>
+
 void readRegions(std::vector<Region>& regions)
 {
   std::ifstream file("ZILLOW_REGIONS.csv");
@@ -18,6 +18,16 @@ void readRegions(std::vector<Region>& regions)
   }
   file.close();
 }
+
+void printFirstFiveRegions(const std::vector<Region>& regions)
+{
+  for (int i = 0; i < 5 && i < regions.size(); ++i) {
+    const Region& region = regions[i];
+    std::cout << "ID: " << region.id << ", City: " << region.city
+              << ", State: " << region.state << std::endl;
+  }
+}
+
 int main()
 {
   std::vector<Region> regions;
