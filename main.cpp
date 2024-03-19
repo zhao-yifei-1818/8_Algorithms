@@ -5,8 +5,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
-using namespace std;
-Region binaryFind(const vector<Region>& regions, int id)
+Region binaryFind(const std::vector<Region>& regions, int id)
 {
   int left = 0;
   int right = regions.size() - 1;
@@ -25,13 +24,13 @@ Region binaryFind(const vector<Region>& regions, int id)
   return Region();
 }
 
-void merge(vector<Region>& arr, int l, int m, int r)
+void merge(std::vector<Region>& arr, int l, int m, int r)
 {
   int i, j, k;
   int n1 = m - l + 1;
   int n2 = r - m;
 
-  vector<Region> L(n1), R(n2);
+  std::vector<Region> L(n1), R(n2);
 
   for (i = 0; i < n1; i++)
     L[i] = arr[l + i];
@@ -65,7 +64,7 @@ void merge(vector<Region>& arr, int l, int m, int r)
   }
 }
 
-void mergeSort(vector<Region>& arr, int l, int r)
+void mergeSort(std::vector<Region>& arr, int l, int r)
 {
   if (l < r) {
     int m = l + (r - l) / 2;
@@ -76,104 +75,104 @@ void mergeSort(vector<Region>& arr, int l, int r)
     merge(arr, l, m, r);
   }
 }
-void readRegions(vector<Region>& regions)
+void readRegions(std::vector<Region>& regions)
 {
-  ifstream file("ZILLOW_REGIONS.csv");
-  string line;
-  while (getline(file, line)) {
-    stringstream ss(line);
-    string id, city, state;
-    getline(ss, id, ',');
-    getline(ss, city, ',');
-    getline(ss, state, ',');
-    regions.push_back({stoi(id), city, state});
+  std::ifstream file("ZILLOW_REGIONS.csv");
+  std::string line;
+  while (std::getline(file, line)) {
+    std::stringstream ss(line);
+    std::string id, city, state;
+    std::getline(ss, id, ',');
+    std::getline(ss, city, ',');
+    std::getline(ss, state, ',');
+    regions.push_back({std::stoi(id), city, state});
   }
   file.close();
 }
-void readPriceRecords(vector<PriceRecord>& prices)
+void readPriceRecords(std::vector<PriceRecord>& prices)
 {
-  ifstream file("ZILLOW_DATA.csv");
-  string line;
-  while (getline(file, line)) {
-    stringstream ss(line);
-    string regionID, date, value;
-    getline(ss, regionID, ',');
-    getline(ss, date, ',');
-    getline(ss, value, ',');
-    prices.push_back({stoi(regionID), date, stod(value)});
+  std::ifstream file("ZILLOW_DATA.csv");
+  std::string line;
+  while (std::getline(file, line)) {
+    std::stringstream ss(line);
+    std::string regionID, date, value;
+    std::getline(ss, regionID, ',');
+    std::getline(ss, date, ',');
+    std::getline(ss, value, ',');
+    prices.push_back({std::stoi(regionID), date, std::stod(value)});
   }
   file.close();
 }
-void printRecords(const vector<PriceRecord>& prices)
+void printRecords(const std::vector<PriceRecord>& prices)
 {
   for (int i = 0; i < 5; ++i) {
     const PriceRecord& record = prices[i];
-    cout << "Region ID: " << record.regionID << ", Date: " << record.date
-         << ", Value: " << record.value << endl;
+    std::cout << "Region ID: " << record.regionID << ", Date: " << record.date
+              << ", Value: " << record.value << std::endl;
   }
 }
 
-void printFirstFiveRegions(const vector<Region>& regions)
+void printFirstFiveRegions(const std::vector<Region>& regions)
 {
   for (int i = 0; i < 5; ++i) {
     const Region& region = regions[i];
-    cout << "ID: " << region.id << ", City: " << region.city
-         << ", State: " << region.state << endl;
+    std::cout << "ID: " << region.id << ", City: " << region.city
+              << ", State: " << region.state << std::endl;
   }
 }
 
 int main()
 {
-  cout << "-----------------------------Part 1----------------------------"
-       << endl;
-  vector<Region> regions;
+  std::cout << "-----------------------------Part 1----------------------------"
+            << std::endl;
+  std::vector<Region> regions;
   readRegions(regions);
   printFirstFiveRegions(regions);
 
-  cout << "-----------------------------Part 2----------------------------"
-       << endl;
+  std::cout << "-----------------------------Part 2----------------------------"
+            << std::endl;
   // insertionSort(regions);
   printFirstFiveRegions(regions);
 
-  cout << "-----------------------------Part 3----------------------------"
-       << endl;
-  vector<Region> regionsByName = regions;
+  std::cout << "-----------------------------Part 3----------------------------"
+            << std::endl;
+  std::vector<Region> regionsByName = regions;
   // clock_t start = clock();
   mergeSort(regionsByName, 0, regionsByName.size() - 1);
   // clock_t end = clock();
-  // cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
-  //           << endl;
+  // std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
+  //           << std::endl;
   printFirstFiveRegions(regionsByName);
 
-  cout << "-----------------------------Part 4----------------------------"
-       << endl;
-  vector<PriceRecord> prices;
+  std::cout << "-----------------------------Part 4----------------------------"
+            << std::endl;
+  std::vector<PriceRecord> prices;
   readPriceRecords(prices);
   printRecords(prices);
 
-  cout << "-----------------------------Part 5----------------------------"
-       << endl;
+  std::cout << "-----------------------------Part 5----------------------------"
+            << std::endl;
   Region foundRegion = binaryFind(regions, 20317);
-  cout << "Found Region: ID: " << foundRegion.id
-       << ", City: " << foundRegion.city << ", State: " << foundRegion.state
-       << endl;
+  std::cout << "Found Region: ID: " << foundRegion.id
+            << ", City: " << foundRegion.city
+            << ", State: " << foundRegion.state << std::endl;
 
-  cout << "-----------------------------Part 6----------------------------"
-       << endl;
-  string searchCity;
-  cout << "Enter a city name: ";
-  getline(cin, searchCity);
+  std::cout << "-----------------------------Part 6----------------------------"
+            << std::endl;
+  std::string searchCity;
+  std::cout << "Enter a city name: ";
+  std::getline(std::cin, searchCity);
   clock_t start = clock();
   for (const auto& priceRecord : prices) {
     Region region = binaryFind(regions, priceRecord.regionID);
     if (region.city == searchCity) {
-      cout << "City: " << region.city << ", State: " << region.state
-           << ", Date: " << priceRecord.date << ", Value: " << priceRecord.value
-           << endl;
+      std::cout << "City: " << region.city << ", State: " << region.state
+                << ", Date: " << priceRecord.date
+                << ", Value: " << priceRecord.value << std::endl;
     }
   }
   clock_t end = clock();
-  cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
-       << endl;
+  std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
+            << std::endl;
   return 0;
 }
