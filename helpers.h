@@ -29,7 +29,7 @@ void insertionSort(std::vector<T>& vec)
     vec[j] = key;
   }
 }
-vector<Region> slice(const vector<Region>& vec, size_t startLoc, size_t endLoc);
-vector<Region> merge(const vector<Region>& vec1, const vector<Region>& vec2);
-void mergeSort(vector<Region>& vec);
+
+void merge(std::vector<Region>& arr, int l, int m, int r);
+void mergeSort(std::vector<Region>& arr, int l, int r);
 #endif // HELPERS_H
