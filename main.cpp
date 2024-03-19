@@ -90,8 +90,8 @@ int main()
 
   std::cout << "-----------------------------Part 2----------------------------"
             << std::endl;
-  insertionSort(regions);
-  printFirstFiveRegions(regions);
+  // insertionSort(regions);
+  // printFirstFiveRegions(regions);
 
   std::cout << "-----------------------------Part 3----------------------------"
             << std::endl;
