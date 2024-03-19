@@ -154,7 +154,7 @@ int main()
                 << ", Date: " << priceRecord.date
                 << ", Value: " << priceRecord.value << std::endl;
     } else
-      (std::cout << "Not found" << std::endl;);
+      (std::cout << "Not found" << std::endl);
   }
 
   clock_t end = clock();
