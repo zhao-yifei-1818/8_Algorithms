@@ -1,19 +1,18 @@
 #include "helpers.h"
+using namespace std;
 
-std::vector<Region> slice(const std::vector<Region>& vec, size_t startLoc,
-                          size_t endLoc)
+vector<Region> slice(const vector<Region>& vec, size_t startLoc, size_t endLoc)
 {
-  std::vector<Region> newVec;
+  vector<Region> newVec;
   for (size_t i = startLoc; i < endLoc; ++i) {
     newVec.push_back(vec.at(i));
   }
   return newVec;
 }
 
-std::vector<Region> merge(const std::vector<Region>& vec1,
-                          const std::vector<Region>& vec2)
+vector<Region> merge(const vector<Region>& vec1, const vector<Region>& vec2)
 {
-  std::vector<Region> newVec;
+  vector<Region> newVec;
   size_t i = 0, j = 0;
   while (i < vec1.size() && j < vec2.size()) {
     if (vec1.at(i) < vec2.at(j)) {
@@ -31,12 +30,12 @@ std::vector<Region> merge(const std::vector<Region>& vec1,
   return newVec;
 }
 
-void mergeSort(std::vector<Region>& vec)
+void mergeSort(vector<Region>& vec)
 {
   if (vec.size() > 1) {
     size_t mid = vec.size() / 2;
-    std::vector<Region> left = slice(vec, 0, mid);
-    std::vector<Region> right = slice(vec, mid, vec.size());
+    vector<Region> left = slice(vec, 0, mid);
+    vector<Region> right = slice(vec, mid, vec.size());
 
     mergeSort(left);
     mergeSort(right);
