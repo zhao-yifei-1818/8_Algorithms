@@ -5,7 +5,6 @@
 #include <sstream>
 #include <vector>
 
-using namespace std;
 void readRegions(vector<Region>& regions)
 {
   ifstream file("ZILLOW_REGIONS.csv");
@@ -37,20 +36,20 @@ int main()
   vector<Region> regions;
   readRegions(regions);
 
-  insertionSort(regions);
-
   cout << "-----------------------------Part 2----------------------------"
        << endl;
+  insertionSort(regions);
+  cout << "-----------------------------Part 3----------------------------"
+       << endl;
+
   vector<Region> regionsByName = regions;
   clock_t start = clock();
-  mergeSort(regionsByName);
+  mergeSort(regionsByName, 0, regionsByName.size() - 1);
   clock_t end = clock();
   cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
        << endl;
   printFirstFiveRegions(regions);
 
-  // cout << "-----------------------------Part 3----------------------------"
-  //      << endl;
   // cout << "-----------------------------Part 4----------------------------"
   //      << endl;
   // cout << "-----------------------------Part 5----------------------------"
