@@ -1,5 +1,5 @@
 #include "helpers.h"
-Region binaryFind(const std::vector<Region>& regions, int id)
+Region Region::binaryFind(const std::vector<Region>& regions, int id)
 {
   int left = 0;
   int right = regions.size() - 1;
