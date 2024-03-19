@@ -30,6 +30,6 @@ void insertionSort(std::vector<T>& vec)
   }
 }
 
-void merge(std::vector<Region>& arr, int l, int m, int r);
-void mergeSort(std::vector<Region>& arr, int l, int r);
+void merge(vector<Region>& arr, int l, int m, int r);
+void mergeSort(vector<Region>& arr, int l, int r);
 #endif // HELPERS_H
