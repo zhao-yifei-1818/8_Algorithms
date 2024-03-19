@@ -86,17 +86,17 @@ int main()
             << std::endl;
   std::vector<Region> regions;
   readRegions(regions);
-  printFirstFiveRegions(regions);
+  std::vector<Region> regionsByName = regions;
 
+  printFirstFiveRegions(regions);
   std::cout << "-----------------------------Part 2----------------------------"
             << std::endl;
+
   insertionSort(regions);
   printFirstFiveRegions(regions);
-
   std::cout << "-----------------------------Part 3----------------------------"
             << std::endl;
 
-  std::vector<Region> regionsByName = regions;
   clock_t start = clock();
   mergeSort(regionsByName, 0, regionsByName.size() - 1);
   clock_t end = clock();
