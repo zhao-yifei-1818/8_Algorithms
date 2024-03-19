@@ -5,6 +5,24 @@
 #include <sstream>
 #include <string>
 #include <vector>
+Region binaryFind(const std::vector<Region>& regions, int id)
+{
+  int left = 0;
+  int right = regions.size() - 1;
+
+  while (left <= right) {
+    int mid = left + (right - left) / 2;
+    if (regions[mid].id == id) {
+      return regions[mid];
+    } else if (regions[mid].id < id) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  // Return a default Region if not found
+  return Region();
+}
 
 void merge(std::vector<Region>& arr, int l, int m, int r)
 {
@@ -102,6 +120,7 @@ void printFirstFiveRegions(const std::vector<Region>& regions)
               << ", State: " << region.state << std::endl;
   }
 }
+
 int main()
 {
   std::cout << "-----------------------------Part 1----------------------------"
@@ -132,6 +151,9 @@ int main()
   printRecords(prices);
   std::cout << "-----------------------------Part 5----------------------------"
             << std::endl;
-
+  Region foundRegion = binaryFind(regions, 20317);
+  std::cout << "Found Region: ID: " << foundRegion.id
+            << ", City: " << foundRegion.city
+            << ", State: " << foundRegion.state << std::endl;
   return 0;
 }

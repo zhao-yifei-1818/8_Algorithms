@@ -39,4 +39,6 @@ void mergeSort(std::vector<Region>& arr, int l, int r);
 void readPriceRecords(std::vector<PriceRecord>& prices);
 void printFirstFivePriceRecords(const std::vector<PriceRecord>& prices);
 
+Region binaryFind(const std::vector<Region>& regions, int id);
+
 #endif // HELPERS_H
