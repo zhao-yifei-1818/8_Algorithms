@@ -41,3 +41,13 @@ void merge(std::vector<Region>& vec, int left, int mid, int right)
     k++;
   }
 }
+void mergeSort(std::vector<Region>& vec, int left, int right)
+{
+  if (left >= right)
+    return; // Returns recursively
+
+  int mid = left + (right - left) / 2;
+  mergeSort(vec, left, mid);
+  mergeSort(vec, mid + 1, right);
+  merge(vec, left, mid, right);
+}
