@@ -162,6 +162,7 @@ int main()
   std::string searchCity;
   std::cout << "Enter a city name: ";
   std::getline(std::cin, searchCity);
+  clock_t start = clock(); // Start timing
   for (const auto& priceRecord : prices) {
     Region region = binaryFind(regions, priceRecord.regionID);
     if (region.city == searchCity) {
