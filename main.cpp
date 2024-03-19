@@ -102,7 +102,7 @@ int main()
   clock_t end = clock();
   std::cout << "Took " << 1.0 * (end - start) / CLOCKS_PER_SEC << " seconds."
             << std::endl;
-  printFirstFiveRegions(regions);
+  printFirstFiveRegions(regionsByName);
 
   return 0;
 }
